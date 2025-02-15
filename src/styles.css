@@ -1,0 +1,19 @@
+:root {
+    --teal: #028391; /*Primary*/
+    --sandyBrown:  #FAA968; /*Secondary*/
+    --giantsOrange: #F85525; /*Pary*/
+    --peachYellow: #F6DCAC; /*Light Mode*/
+    --oxfordBlue: #01204E; /*Dark Mode*/
+    }
+
+body {
+    background-color: var(--peachYellow);
+}
+
+blockquote {
+    text-align: center;
+    color: var(--sand);
+    background-color: var(--giantsOrange);
+    border-style: solid;
+    border-color: var(--sandyBrown);
+}
