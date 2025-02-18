@@ -13,6 +13,7 @@
 </head>
 <body>
     <header>
+      <!-- NavBar -->
         <nav class="navbar bg-body-tertiary fixed-top" style="background-image:url('src/jungle.jpg');">
             <div class="container-fluid">
               <a class="navbar-brand" href="index.html" style="color: #F6DCAC; font-family: 'Arial Black', 'Arial Narrow', Arial, sans-serif;">𝄞 A Music Diary 🎵</a>
@@ -59,6 +60,87 @@
           </nav>
     </header>
     <main>
+      <!-- Modal for My Practice Log -->
+      <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">My Practice Log</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Form input -->
+              <div class="row g-2">
+                <div class="col-md">
+                  <div class="form-floating">
+                    <input type="date" class="form-control" id="floatingInputGrid" name="practice-date" value="2025-02-17"/>
+                    <label for="start">Today is:</label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating">
+                    <input type="time" class="form-control" id="floatingInputGrid" name="practice-start" value="00:00" min="00:00" max="23:59" required/>
+                    <label for="">Time practice started:</label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating">
+                    <input type="time" class="form-control" id="floatingInputGrid" name="practice-ends" value="00:00" min="00:00" max="23:59" required/>
+                    <label for="">Time practice ended:</label>
+                  </div>
+                </div>
+                <select class="form-select form-select-sm" aria-label="Small select example">
+                  <option selected>Select Instrument:</option>
+                  <option value="flute">Flute</option>
+                  <option value="piccolo">Piccolo</option>
+                  <option value="clarinet">Clarinet</option>
+                  <option value="oboe">Oboe</option>
+                  <option value="eHorn">English Horn</option>
+                  <option value="bassoon">Bassoon</option>
+                  <option value="recorder">Recorder</option>
+                  <option value="piano">Piano</option>
+                  <option value="ukulele">Ukulele</option>
+                  <option value="guitar">Guitar</option>
+                </select>
+                <select class="form-select form-select-sm" aria-label="Small select example">
+                  <option selected>Select Scale:</option>
+                  <option value="cScale">C Scale</option>
+                  <option value="fScale">F Scale</option>
+                  <option value="bBScale">Bb Scale</option>
+                  <option value="eBScale">Eb Scale</option>
+                  <option value="aBScale">Ab Scale</option>
+                  <option value="dBScale">Db Scale</option>
+                  <option value="gBScale">Gb/F# Scale</option>
+                  <option value="gScale">G Scale</option>
+                  <option value="dScale">D Scale</option>
+                  <option value="aScale">A Scale</option>
+                  <option value="eScale">E Scale</option>
+                  <option value="bScale">B Scale</option>
+                </select>
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">Study(-ies):</span>
+                  <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">Piece(s):</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">Excerpt(s):</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text">Comments:</span>
+                  <textarea class="form-control" aria-label="With textarea"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save Practice</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </main>
     <footer>
