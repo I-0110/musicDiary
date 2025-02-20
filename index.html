@@ -14,39 +14,39 @@
 <body>
     <header>
       <!-- NavBar -->
-        <nav class="navbar bg-body-tertiary fixed-top" style="background-image:url('src/jungle.jpg');">
+        <nav class="navbar fixed-top" style="background-color:#028391;">
             <div class="container-fluid">
               <a class="navbar-brand" href="index.html" style="color: #F6DCAC; font-family: 'Arial Black', 'Arial Narrow', Arial, sans-serif;">𝄞 A Music Diary 🎵</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" style="color: #F6DCAC;" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="color: #F6DCAC;"></span>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" style="background-color: #F6DCAC;" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
               </button>
               <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">𝄞 A Music Diary 🎵</h5>
-                    <button type="button" class="btn-close btn-close-white color:#028391;" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <div class="offcanvas-header" style="background-color:#F6DCAC;">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="color:#028391;">𝄞 A Music Diary 🎵</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="offcanvas-body" style="color:#028391;">
+                <div class="offcanvas-body" style="background-color:#F6DCAC;">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="color:#028391;">
                     <li class="nav-item" style="color:#028391;">
                       <a class="nav-link active" aria-current="page" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Practice Log</a>
+                      <button class="btn btn-outline" style="background-color:#028391; color:#F6DCAC" href="#practiceLog">Practice Log</button>
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="color:#028391;" aria-expanded="false">
                         More
                       </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Today is...</a></li>
-                        <li><a class="dropdown-item" href="#">Famous Flutists</a></li>
-                        <li><a class="dropdown-item" href="#">What Would... Say?</a></li>
+                      <ul class="dropdown-menu" style="background-color:#F6DCAC;">
+                        <li><a class="dropdown-item" style="color: #028391;" href="#">Today is...</a></li>
+                        <li><a class="dropdown-item" style="color: #028391;" href="#">Famous Flutists</a></li>
+                        <li><a class="dropdown-item" style="color: #028391;" href="#">What Would... Say?</a></li>
                         <li>
                           <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Orchestra Audition</a></li>
-                        <li><a class="dropdown-item" href="#">Flute Camps</a></li>
-                        <li><a class="dropdown-item" href="#">Flute Competitions</a></li>
+                        <li><a class="dropdown-item" style="color: #028391;" href="#">Orchestra Audition</a></li>
+                        <li><a class="dropdown-item" style="color: #028391;" href="#">Flute Camps</a></li>
+                        <li><a class="dropdown-item" style="color: #028391;" href="#">Flute Competitions</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -60,87 +60,29 @@
           </nav>
     </header>
     <main>
-      <!-- Modal for My Practice Log -->
-      <div class="modal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">My Practice Log</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <!-- Form input -->
-              <div class="row g-2">
-                <div class="col-md">
-                  <div class="form-floating">
-                    <input type="date" class="form-control" id="floatingInputGrid" name="practice-date" value="2025-02-17"/>
-                    <label for="start">Today is:</label>
-                  </div>
-                </div>
-                <div class="col-md">
-                  <div class="form-floating">
-                    <input type="time" class="form-control" id="floatingInputGrid" name="practice-start" value="00:00" min="00:00" max="23:59" required/>
-                    <label for="">Time practice started:</label>
-                  </div>
-                </div>
-                <div class="col-md">
-                  <div class="form-floating">
-                    <input type="time" class="form-control" id="floatingInputGrid" name="practice-ends" value="00:00" min="00:00" max="23:59" required/>
-                    <label for="">Time practice ended:</label>
-                  </div>
-                </div>
-                <select class="form-select form-select-sm" aria-label="Small select example">
-                  <option selected>Select Instrument:</option>
-                  <option value="flute">Flute</option>
-                  <option value="piccolo">Piccolo</option>
-                  <option value="clarinet">Clarinet</option>
-                  <option value="oboe">Oboe</option>
-                  <option value="eHorn">English Horn</option>
-                  <option value="bassoon">Bassoon</option>
-                  <option value="recorder">Recorder</option>
-                  <option value="piano">Piano</option>
-                  <option value="ukulele">Ukulele</option>
-                  <option value="guitar">Guitar</option>
-                </select>
-                <select class="form-select form-select-sm" aria-label="Small select example">
-                  <option selected>Select Scale:</option>
-                  <option value="cScale">C Scale</option>
-                  <option value="fScale">F Scale</option>
-                  <option value="bBScale">Bb Scale</option>
-                  <option value="eBScale">Eb Scale</option>
-                  <option value="aBScale">Ab Scale</option>
-                  <option value="dBScale">Db Scale</option>
-                  <option value="gBScale">Gb/F# Scale</option>
-                  <option value="gScale">G Scale</option>
-                  <option value="dScale">D Scale</option>
-                  <option value="aScale">A Scale</option>
-                  <option value="eScale">E Scale</option>
-                  <option value="bScale">B Scale</option>
-                </select>
-                <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text" id="inputGroup-sizing-sm">Study(-ies):</span>
-                  <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text" id="inputGroup-sizing-sm">Piece(s):</span>
-                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text" id="inputGroup-sizing-sm">Excerpt(s):</span>
-                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <div class="input-group">
-                  <span class="input-group-text">Comments:</span>
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save Practice</button>
-            </div>
-          </div>
+      <!-- Hero Banner -->
+      <section >
+        <div class="hero-banner">
+            <h3>Welcome to your Music Diary</h3>
+        </div>
+      </section>
+      <!-- Card for My Practice Log -->
+      <div class="card p-3 mb-2" style="background-color:#028391;">
+        <div class="card-body p-3 mb-2 bg-info-subtle text-info-emphasis" id="practiceLog">
+          <h5 class="card-title">Practice Log</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Date: Time: Instrument:</h6>
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item">Scale(s):</li>
+              <li class="list-group-item">Study(-ies):</li>
+              <li class="list-group-item">Piece(s):</li>
+            <li class="list-group-item">Excerpt(s):</li>
+          </ul>
+        <div class="card-footer">Comments for next practice:</div>
+          <button type="button" class="btn btn-secondary" id="close">Close</button>
+          <button type="button" class="btn btn-primary" id="save">Save Practice</button>
         </div>
       </div>
+        
 
     </main>
     <footer>
