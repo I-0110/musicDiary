@@ -2,11 +2,11 @@ const practice = document.querySelector(#practiceLog);
 const savePrBtn = document.querySelector('#save');
 const closePrBtn = document.querySelector('#close');
 
-const sb = document.querySelector('#save')
-const cb = document.querySelector('#close')
-const del = document.querySelector('#delete-msg')
-const deleteIt = document.querySelector('#del-yes')
-const cb2 = document.querySelector('#no')
+// const sb = document.querySelector('#save')
+// const cb = document.querySelector('#close')
+// const del = document.querySelector('#delete-msg')
+// const deleteIt = document.querySelector('#del-yes')
+// const cb2 = document.querySelector('#no')
 
 // Function to call filled Practice Logs from local storage
 function getPractice() {
