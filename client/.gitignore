@@ -1,0 +1,46 @@
+# dependecies
+/node_modules
+
+# production
+/build
+/dist 
+
+# misc
+.DS_Store
+.env 
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# testing 
+/coverage
+
+# local env files
+.local
+*.local
+
+# Editor directories and files
+.idea/
+.vscode/
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Ignore Electron binaries
+client/node_modules/
+client/node_modules/electron/
+client/node_modules/electron/dist/
+
+*.exe 
