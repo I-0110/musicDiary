@@ -1,0 +1,44 @@
+[
+    {
+      "username": "flutist21",
+      "practiceTime": "2 hours",
+      "instrument": "Flute", 
+      "warmups": "Sonorite",
+      "technique": "Daily Exercises by Marcel Moyse",
+      "scales": "A Major and A Minor Scales",
+      "etudes": "Etude No. 1 by Taffanel",
+      "pieces": "Syrinx by Debussy",
+      "excerpts": "Mozart Flute Concerto in G Major",
+      "improvisation": "C Major Blues Scale",
+      "comments": "Focusing on tone quality and intonation.",
+      "date": "2023-10-01"
+    },
+    {
+      "username": "flutist21",
+      "practiceTime": "1.5 hours",
+      "instrument": "Flute", 
+      "warmups": "Sonorite",
+      "technique": "n/a",
+      "scales": "A Major and A Minor Scales",
+      "etudes": "Etude No. 1 by Taffanel",
+      "pieces": "Syrinx by Debussy",
+      "excerpts": "Mozart Flute Concerto in G Major",
+      "improvisation": "C Major Blues Scale",
+      "comments": "Focusing on tone quality and intonation.",
+      "date": "2023-10-02"
+    },
+    {
+      "username": "flutist21",
+      "practiceTime": "2.5 hours",
+      "instrument": "Flute", 
+      "warmups": "Sonorite",
+      "technique": "Daily Exercises by Marcel Moyse",
+      "scales": "A Major and A Minor Scales",
+      "etudes": "Etude No. 1 by Taffanel",
+      "pieces": "Syrinx by Debussy, Sonatine by Pierre Sancan",
+      "excerpts": "Mozart Flute Concerto in G Major",
+      "improvisation": "C Major Blues Scale",
+      "comments": "Focusing on tone quality and intonation.",
+      "date": "2023-10-01"
+    }
+  ]
