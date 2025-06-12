@@ -77,7 +77,7 @@ const PracticeLogForm = () => {
           </div>
 
           <div className="col-12 col-lg-3">
-            <button className="btn btn-info btn-block py-3" type="submit">
+            <button className="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md transition duration-200" type="submit">
               Add Practice Log
             </button>
           </div>

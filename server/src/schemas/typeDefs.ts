@@ -1,14 +1,15 @@
 const typeDefs = `
   type PracticeLog {
-  date: String!
-  startTime: String!
-  endTime: String!
+    date: String!
+    startTime: String!
+    endTime: String!
+    totalPracticeTime: String
   }
 
   input PracticeLogInput {
-  date: String!
-  startTime: String!
-  endTime: String!
+    date: String!
+    startTime: String!
+    endTime: String!
   }
 
   type Profile {

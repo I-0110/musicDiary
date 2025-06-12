@@ -1,10 +1,12 @@
 import { Profile } from '../models/index.js';
 import { signToken, AuthenticationError } from '../utils/auth.js';
+// import { GraphQLDateTime } from 'graphql-iso-date';
 
 interface PracticeLog {
   date: string;
   startTime: string;
   endTime: string;
+  totalPracticeTime?: string;
 }
 
 interface PracticeLogInput {
