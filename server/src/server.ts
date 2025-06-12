@@ -1,48 +1,50 @@
-import express, { Request, Response } from 'express';
-import sequelize from './config/connection.js';
-import routes from './routes/index.js';
-
-const app = express();
-const PORT = process.env.PORT || 3001;
+import express from 'express';
+import path from 'node:path';
+import type { Request, Response } from 'express';
+import db from './config/connection.js'
+import { ApolloServer } from '@apollo/server';// Note: Import from @apollo/server-express
+import { expressMiddleware } from '@apollo/server/express4';
+import { typeDefs, resolvers } from './schemas/index.js';
+import { authenticateToken } from './utils/auth.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Serve static files
-app.use(express.static('public'));
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
+});
+
+const startApolloServer = async () => {
+  await server.start();
+  await db();
 
 // Middleware to connect with log
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+  const PORT = process.env.PORT || 3001;
+  const app = express();
+
+  app.use(express.urlencoded({ extended: false }));
+  app.use(express.json());
 
 // Log all incoming requests
-app.use((req, _res, next) => {
-    console.log(`📥 Received ${req.method} request at ${req.url}`);
-    next();
-});
+  app.use('/graphql', expressMiddleware(server as any,
+    {
+      context: authenticateToken as any
+    }
+  ));
 
-// Root route
-app.get('/', (_req: Request, res: Response) => {
-    res.send(`
-        <h1>🎵 Welcome to A Music Diary</h1>
-        <p>Start tracking your musical journey today!</p>
-        <img src="/cat.jpg" alt=" Music Cat Engineer" width="300"/>
-        <p>Meow-sician at work!</p>
-        `);
-});
+  if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// Register /api routes
-app.use(routes);
-
-// Sync database and start server 
-sequelize.authenticate()
-    .then(() => {
-        console.log('🔌 Database connection established successfully.');
-        return sequelize.sync({ force: true });
-    })
-    .then(() => {
-        console.log('✅ Database synced successfully (tables dropped and recreated)');
-        app.listen(PORT, () => {
-            console.log(`🚀 Server is listening on http://localhost:${PORT}/`);
-        });
-    })
-    .catch((err) => {
-        console.error('❌ Error syncing database:', err);
+    app.get('*', (_req: Request, res: Response) => {
+      res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
+  }
+
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+    console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+  });
+};
+
+startApolloServer();
