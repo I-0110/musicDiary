@@ -37,67 +37,69 @@ const PracticeLogForm = () => {
   };
 
   return (
-    <div>
-      <h4>Log a new practice session</h4>
+  <div className="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text p-6 rounded shadow-md transition-colors duration-300">
+    <h4 className="text-xl font-semibold mb-4">Log a new practice session</h4>
+    {Auth.loggedIn() ? (
+      <form
+        className="flex flex-col gap-4"
+        onSubmit={handleFormSubmit}
+      >
+        <div>
+          <label className="block mb-1">Date</label>
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="w-full form-input bg-white text-black dark:bg-dark-background dark:text-dark-text border border-gray-300 dark:border-gray-600 rounded px-2 py-1"
+            required
+          />
+        </div>
+        <div>
+          <label className="block mb-1">Start Time</label>
+          <input
+            type="time"
+            value={startTime}
+            onChange={(e) => setStartTime(e.target.value)}
+            className="w-full form-input bg-white text-black dark:bg-dark-background dark:text-dark-text border border-gray-300 dark:border-gray-600 rounded px-2 py-1"
+            required
+          />
+        </div>
+        <div>
+          <label className="block mb-1">End Time</label>
+          <input
+            type="time"
+            value={endTime}
+            onChange={(e) => setEndTime(e.target.value)}
+            className="w-full form-input bg-white text-black dark:bg-dark-background dark:text-dark-text border border-gray-300 dark:border-gray-600 rounded px-2 py-1"
+            required
+          />
+        </div>
 
-      {Auth.loggedIn() ? (
-        <form
-          className="flex-row justify-center justify-space-between-md align-center"
-          onSubmit={handleFormSubmit}
-        >
-          <div className="col-12 col-lg-9">
-            <label>Date</label>
-            <input
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              className='form-input'
-              required
-            />
-          </div>
-          <div className="col-12 col-lg-9">
-            <label>Start Time</label>
-            <input
-              type="time"
-              value={startTime}
-              onChange={(e) => setStartTime(e.target.value)}
-              className='form-input'
-              required
-            />
-          </div>
-          <div className="col-12 col-lg-9">
-            <label>End Time</label>
-            <input
-              type="time"
-              value={endTime}
-              onChange={(e) => setEndTime(e.target.value)}
-              className='form-input'
-              required
-            />
-          </div>
-
-          <div className="col-12 col-lg-3">
-            <button className="bg-teal text-white px-4 py-2 rounded hover:bg-forest transition" type="submit">
-              Add Practice Log
-            </button>
-          </div>
+        <div>
+          <button 
+            className="bg-light-accent text-white dark:bg-dark-accent px-4 py-2 rounded hover:opacity-90 transition"
+            type="submit"
+          >
+            Add Practice Log
+          </button>
+        </div>
           {/* <div className="bg-richBlack text-olive p-6 rounded-lg">
             <h2 className="text-teal text-2xl mb-2">Practice Summary</h2>
             <p>Total Time: 1h 15m</p>
           </div> */}
-          {error && (
-            <div className="col-12 my-3 bg-danger text-white p-3">
-              {error.message}
-            </div>
-          )}
-        </form>
+        {error && (
+          <div className="bg-red-600 text-white p-3 rounded">
+            {error.message}
+          </div>
+        )}
+      </form>
       ) : (
-        <p>
-          You need to be logged in to log practice sessions. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
-      )}
-    </div>
+      <p>
+        You need to be logged in to log practice sessions. Please{' '}
+        <Link to="/login" className="text-light-accent dark:text-dark-accent underline">login</Link> or <Link to="/signup" className="text-light-accent dark:text-dark-accent underline">signup</Link>.
+      </p>
+    )}
+  </div>
   );
 };
 
