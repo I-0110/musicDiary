@@ -77,10 +77,14 @@ const PracticeLogForm = () => {
           </div>
 
           <div className="col-12 col-lg-3">
-            <button className="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md transition duration-200" type="submit">
+            <button className="bg-teal text-white px-4 py-2 rounded hover:bg-forest transition" type="submit">
               Add Practice Log
             </button>
           </div>
+          {/* <div className="bg-richBlack text-olive p-6 rounded-lg">
+            <h2 className="text-teal text-2xl mb-2">Practice Summary</h2>
+            <p>Total Time: 1h 15m</p>
+          </div> */}
           {error && (
             <div className="col-12 my-3 bg-danger text-white p-3">
               {error.message}
