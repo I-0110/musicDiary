@@ -1,15 +1,10 @@
 import { Profile } from '../models/index.js';
 import { signToken, AuthenticationError } from '../utils/auth.js';
 
-interface PracticeLogInput {
+interface PracticeLog {
   date: string;
   startTime: string;
   endTime: string;
-}
-
-interface AddPracticeLogArgs {
-  profileId: string;
-  log: PracticeLogInput;
 }
 
 interface Profile {
@@ -17,7 +12,7 @@ interface Profile {
   name: string;
   email: string;
   password: string;
-  skills: string[];
+  practiceLogs: PracticeLog[];
 }
 
 interface ProfileArgs {
@@ -41,6 +36,11 @@ interface AddProfileArgs {
 //   profileId: string;
 //   skill: string;
 // }
+
+interface AuthPayload {
+  token: string;
+  profile: Profile;
+}
 
 interface Context {
   user?: Profile;
@@ -67,7 +67,7 @@ const resolvers = {
   Mutation: {
     addPracticeLog: async (
       _parent: any,
-      { profileId, log }: AddPracticeLogArgs,
+      { log }: { log: PracticeLog },
       context: Context 
     ): Promise<Profile | null> => {
       if (!context.user) {
@@ -78,7 +78,11 @@ const resolvers = {
 
       // Validate that endTime > startTime
       const start = new Date(`${date}T${startTime}`);
-      const end = new Date(`S{date}T${endTime}`);
+      const end = new Date(`${date}T${endTime}`);
+
+      if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+        throw new Error('Invalid date or time format.');
+      }
 
       if (end <= start) {
         throw new Error('End time must be after start time! '); 
@@ -86,17 +90,17 @@ const resolvers = {
 
       // Add practice log entry to profile
       return await Profile.findOneAndUpdate(
-        { _id: profileId },
+        { _id: context.user._id },
         { $push: { practiceLogs: { date, startTime, endTime } } },
         { new: true, runValidators: true }
       );
     },
-    addProfile: async (_parent: any, { input }: AddProfileArgs): Promise<{ token: string; profile: Profile }> => {
+    addProfile: async (_parent: any, { input }: AddProfileArgs): Promise<AuthPayload> => {
       const profile = await Profile.create({ ...input });
       const token = signToken(profile.name, profile.email, profile._id);
       return { token, profile };
     },
-    login: async (_parent: any, { email, password }: { email: string; password: string }): Promise<{ token: string; profile: Profile }> => {
+    login: async (_parent: any, { email, password }: { email: string; password: string }): Promise<AuthPayload> => {
       const profile = await Profile.findOne({ email });
       if (!profile) {
         throw AuthenticationError;
