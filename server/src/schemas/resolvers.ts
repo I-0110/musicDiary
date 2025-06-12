@@ -85,6 +85,52 @@ const resolvers = {
         { new: true, runValidators: true }
       );
     },
+    practiceLogsbyDate: async (
+      _parent: any,
+      { date }: { date: string },
+      context: Context
+    ): Promise<PracticeLog[]> => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+
+      const user = await Profile.findById(context.user._id);
+
+      if (!user) {
+        throw new Error("User not found");
+      }
+
+      return user.practiceLogs.filter(log => log.date === date);
+    },
+    totalPracticeTime: async (
+      _parent: any,
+      _args: any,
+      context: Context
+    ): Promise<string> => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+
+      const user = await Profile.findById(context.user._id);
+      if (!user) throw new Error("User not found");
+
+      let totalMinutes = 0;
+
+      for (const log of user.practiceLogs) {
+        const start = new Date(`${log.date}T${log.startTime}`);
+        const end = new Date(`${log.date}T${log.endTime}`);
+
+        if (!isNaN(start.getTime()) && !isNaN(end.getTime())) {
+          const diffMins = end.getTime() - start.getTime();
+          totalMinutes += diffMins / 60000; //convert to minutes
+        }
+      }
+
+      const hours = Math.floor(totalMinutes / 60);
+      const minutes = Math.floor(totalMinutes % 60);
+
+      return `${hours}h ${minutes}m`;
+    },
     addProfile: async (_parent: any, { input }: AddProfileArgs): Promise<Auth> => {
       const profile = await Profile.create({ ...input });
       const token = signToken(profile.name, profile.email, profile._id);

@@ -28,6 +28,8 @@ const typeDefs = `
     profiles: [Profile]!
     profile(profileId: ID!): Profile
     me: Profile
+    practiceLogsByDate(date: String!): [PracticeLog]!
+    totalPracticeTime: String!
   }
 
   type Mutation {
