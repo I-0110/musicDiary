@@ -1,49 +1,49 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
 
-import { REMOVE_SKILL } from '../../utils/mutations';
+import { REMOVE_PRACTICE_LOG } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 
-interface SkillsListProps {
-  skills?: string[];
+interface PracticeLogsListProps {
+  practiceLogs?: string[];
   isLoggedInUser: boolean;
 }
 
-const SkillsList: React.FC<SkillsListProps> = ({ skills = [], isLoggedInUser }) => {
-  const [removeSkill, { error }] = useMutation
-  (REMOVE_SKILL, {
+const PracticeLogs: React.FC<PracticeLogsListProps> = ({ practiceLogs = [], isLoggedInUser }) => {
+  const [removePracticeLog, { error }] = useMutation
+  (REMOVE_PRACTICE_LOG, {
     refetchQueries: [
       QUERY_ME,
       'me'
     ]
   });
 
-  const handleRemoveSkill = async (skill: any) => {
+  const handleRemovePracticeLog = async (practiceLog: any) => {
     try {
-      await removeSkill({
-        variables: { skill },
+      await removePracticeLog({
+        variables: { practiceLog },
       });
     } catch (err) {
       console.error(err);
     }
   };
-  if (!skills.length) {
-    return <h3>No Skills Yet</h3>;
+  if (!practiceLogs.length) {
+    return <h3>No PracticeLogs Yet</h3>;
   }
 
   return (
     <div>
       <div className="flex-row justify-space-between my-4">
-        {skills &&
-          skills.map((skill) => (
-            <div key={skill} className="col-12 col-xl-6">
+        {practiceLogs &&
+          practiceLogs.map((practiceLog) => (
+            <div key={practiceLog} className="col-12 col-xl-6">
               <div className="card mb-3">
                 <h4 className="card-header bg-dark text-light p-2 m-0 display-flex align-center">
-                  <span>{skill}</span>
+                  <span>{practiceLog}</span>
                   {isLoggedInUser && (
                     <button
                       className="btn btn-sm btn-danger ml-auto"
-                      onClick={() => handleRemoveSkill(skill)}
+                      onClick={() => handleRemovePracticeLog(practiceLog)}
                     >
                       X
                     </button>
@@ -60,4 +60,4 @@ const SkillsList: React.FC<SkillsListProps> = ({ skills = [], isLoggedInUser }) 
   );
 };
 
-export default SkillsList;
+export default PracticeLogs;
