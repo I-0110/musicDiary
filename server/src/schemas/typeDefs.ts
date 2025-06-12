@@ -1,15 +1,21 @@
 const typeDefs = `
+  type PracticeLog {
+  date: String!
+  startTime: String!
+  endTime: String!
+  }
+
   type Profile {
     _id: ID
     name: String
     email: String
     password: String
-    skills: [String]!
+    practiceLogs: [PracticeLog]!
   }
 
   type Auth {
     token: ID!
-    profile: Profile
+    profile: Profile!
   }
   
   input ProfileInput {
@@ -22,15 +28,16 @@ const typeDefs = `
     profiles: [Profile]!
     profile(profileId: ID!): Profile
     me: Profile
+    practiceLogsByDate(date: String!): [PracticeLog]!
+    totalPracticeTime: String!
   }
 
   type Mutation {
     addProfile(input: ProfileInput!): Auth
     login(email: String!, password: String!): Auth
-
-    addSkill(profileId: ID!, skill: String!): Profile
+    addPracticeLog(log: PracticeLog!): Profile
+    removePracticelog(log: PracticeLog!): Profile
     removeProfile: Profile
-    removeSkill(skill: String!): Profile
   }
 `;
 
