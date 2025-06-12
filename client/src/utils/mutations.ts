@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 export const ADD_PRACTICE_LOG = gql`
-  mutation addPracticeLog($log: PracticeLog!) {
+  mutation addPracticeLog($log: PracticeLogInput!) {
     addPracticeLog(log: $log) {
       _id
       name
@@ -38,7 +38,7 @@ export const LOGIN_USER = gql`
 `;
 
 export const REMOVE_PRACTICE_LOG = gql`
-  mutation removePracticeLog($log: PracticeLog!) {
+  mutation removePracticeLog($log: PracticeLogInput!) {
     removePracticeLog(log: $log) {
       _id
       name
