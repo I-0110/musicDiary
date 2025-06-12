@@ -53,38 +53,6 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-  },
-  Mutation: {
-    addPracticeLog: async (
-      _parent: any,
-      { log }: { log: PracticeLog },
-      context: Context 
-    ): Promise<Profile | null> => {
-      if (!context.user) {
-        throw AuthenticationError;
-      }
-
-      const { date, startTime, endTime } = log;
-
-      // Validate that endTime > startTime
-      const start = new Date(`${date}T${startTime}`);
-      const end = new Date(`${date}T${endTime}`);
-
-      if (isNaN(start.getTime()) || isNaN(end.getTime())) {
-        throw new Error('Invalid date or time format.');
-      }
-
-      if (end <= start) {
-        throw new Error('End time must be after start time! '); 
-      }
-
-      // Add practice log entry to profile
-      return await Profile.findOneAndUpdate(
-        { _id: context.user._id },
-        { $push: { practiceLogs: { date, startTime, endTime } } },
-        { new: true, runValidators: true }
-      );
-    },
     practiceLogsbyDate: async (
       _parent: any,
       { date }: { date: string },
@@ -130,6 +98,38 @@ const resolvers = {
       const minutes = Math.floor(totalMinutes % 60);
 
       return `${hours}h ${minutes}m`;
+    },
+  },
+  Mutation: {
+    addPracticeLog: async (
+      _parent: any,
+      { log }: { log: PracticeLog },
+      context: Context 
+    ): Promise<Profile | null> => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+
+      const { date, startTime, endTime } = log;
+
+      // Validate that endTime > startTime
+      const start = new Date(`${date}T${startTime}`);
+      const end = new Date(`${date}T${endTime}`);
+
+      if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+        throw new Error('Invalid date or time format.');
+      }
+
+      if (end <= start) {
+        throw new Error('End time must be after start time! '); 
+      }
+
+      // Add practice log entry to profile
+      return await Profile.findOneAndUpdate(
+        { _id: context.user._id },
+        { $push: { practiceLogs: { date, startTime, endTime } } },
+        { new: true, runValidators: true }
+      );
     },
     addProfile: async (_parent: any, { input }: AddProfileArgs): Promise<Auth> => {
       const profile = await Profile.create({ ...input });

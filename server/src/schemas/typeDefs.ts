@@ -33,11 +33,11 @@ const typeDefs = `
   }
 
   type Mutation {
+    addPracticeLog(log: PracticeLog!): Profile
     addProfile(input: ProfileInput!): Auth
     login(email: String!, password: String!): Auth
-    addPracticeLog(log: PracticeLog!): Profile
-    removePracticelog(log: PracticeLog!): Profile
     removeProfile: Profile
+    removePracticelog(log: PracticeLog!): Profile
   }
 `;
 

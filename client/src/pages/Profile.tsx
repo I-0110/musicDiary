@@ -2,7 +2,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import PracticeLogs from '../components/PracticeLogs';
-import PracticeForm from '../components/PracticeForm';
+// import PracticeForm from '../components/PracticeForm';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
@@ -44,19 +44,19 @@ const Profile = () => {
     <div>
       <h2 className="card-header">
         {profileId ? `${profile.name}'s` : 'Your'} friends have endorsed these
-        skills...
+        practiceLogs...
       </h2>
 
-      {profile.skills?.length > 0 && (
+      {profile.practiceLogs?.length > 0 && (
         <PracticeLogs
-          skills={profile.skills}
+          practiceLogs={profile.practiceLogs}
           isLoggedInUser={!profileId && true}
         />
       )}
 
-      <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
+      {/* <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
         <PracticeForm profileId={profile._id} />
-      </div>
+      </div> */}
     </div>
   );
 };

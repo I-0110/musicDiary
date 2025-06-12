@@ -1,17 +1,4 @@
 import { gql } from '@apollo/client';
-
-export const ADD_PROFILE = gql`
-  mutation addProfile($input: ProfileInput!) {
-    addProfile(input: $input) {
-      token
-      profile {
-        _id
-        name
-      }
-    }
-  }
-`;
-
 export const ADD_PRACTICE_LOG = gql`
   mutation addPracticeLog($log: PracticeLog!) {
     addPracticeLog(log: $log) {
@@ -21,6 +8,18 @@ export const ADD_PRACTICE_LOG = gql`
         date
         startTime
         endTime
+      }
+    }
+  }
+`;
+
+export const ADD_PROFILE = gql`
+  mutation addProfile($input: ProfileInput!) {
+    addProfile(input: $input) {
+      token
+      profile {
+        _id
+        name
       }
     }
   }
