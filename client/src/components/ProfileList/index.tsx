@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 interface Profile {
   _id: string;
   name: string;
-  skills: string[]; // Assuming skills are represented as an array of strings
+  practiceLogs: string[]; // Assuming practiceLogs are represented as an array of strings
 }
 
 interface ProfileListProps {
@@ -27,9 +27,9 @@ const ProfileList: React.FC<ProfileListProps> = ({ profiles, title }) => {
                 <h4 className="card-header bg-dark text-light p-2 m-0">
                   {profile.name} <br />
                   <span className="text-white" style={{ fontSize: '1rem' }}>
-                    currently has {profile.skills ? profile.skills.length : 0}{' '}
+                    currently has {profile.practiceLogs ? profile.practiceLogs.length : 0}{' '}
                     endorsed skill
-                    {profile.skills && profile.skills.length === 1 ? '' : 's'}
+                    {profile.practiceLogs && profile.practiceLogs.length === 1 ? '' : 's'}
                   </span>
                 </h4>
                 <div className="card-body bg-light p-2">
@@ -39,7 +39,7 @@ const ProfileList: React.FC<ProfileListProps> = ({ profiles, title }) => {
                   className="btn btn-block btn-squared btn-light text-dark"
                   to={`/profiles/${profile._id}`}
                 >
-                  View and endorse their skills.
+                  View other user's practice logs.
                 </Link>
               </div>
             </div>
