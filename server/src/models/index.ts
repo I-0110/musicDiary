@@ -1,6 +1,3 @@
-import sequelize from '../config/connection.js';
-import { UserFactory } from './musician.js';
+import Profile from './Profile.js';
 
-const Musician = UserFactory(sequelize);
-
-export { sequelize, Musician };
+export { Profile };
