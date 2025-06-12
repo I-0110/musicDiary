@@ -5,6 +5,12 @@ const typeDefs = `
   endTime: String!
   }
 
+  input PracticeLogInput {
+  date: String!
+  startTime: String!
+  endTime: String!
+  }
+
   type Profile {
     _id: ID
     name: String
@@ -33,11 +39,11 @@ const typeDefs = `
   }
 
   type Mutation {
-    addPracticeLog(log: PracticeLog!): Profile
+    addPracticeLog(log: PracticeLogInput!): Profile
     addProfile(input: ProfileInput!): Auth
     login(email: String!, password: String!): Auth
     removeProfile: Profile
-    removePracticelog(log: PracticeLog!): Profile
+    removePracticeLog(log: PracticeLogInput!): Profile
   }
 `;
 

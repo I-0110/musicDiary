@@ -7,6 +7,12 @@ interface PracticeLog {
   endTime: string;
 }
 
+interface PracticeLogInput {
+  date: string;
+  startTime: string;
+  endTime: string;
+}
+
 interface Profile {
   _id: string;
   name: string;
@@ -53,7 +59,7 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    practiceLogsbyDate: async (
+    practiceLogsByDate: async (
       _parent: any,
       { date }: { date: string },
       context: Context
@@ -103,7 +109,7 @@ const resolvers = {
   Mutation: {
     addPracticeLog: async (
       _parent: any,
-      { log }: { log: PracticeLog },
+      { log }: { log: PracticeLogInput },
       context: Context 
     ): Promise<Profile | null> => {
       if (!context.user) {
@@ -156,7 +162,7 @@ const resolvers = {
     },
     removePracticeLog: async (
       _parent: any, 
-      { log }: { log: PracticeLog }, 
+      { log }: { log: PracticeLogInput }, 
       context: Context
     ): Promise<Profile | null> => {
       if (!context.user) {
