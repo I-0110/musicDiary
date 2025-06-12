@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type { Request, Response } from 'express';
 import db from './config/connection.js'
 import { ApolloServer } from '@apollo/server';// Note: Import from @apollo/server-express
@@ -10,6 +11,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Serve static files
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const server = new ApolloServer({
   typeDefs,
   resolvers
@@ -27,7 +31,7 @@ const startApolloServer = async () => {
   app.use(express.json());
 
 // Log all incoming requests
-  app.use('/graphql', expressMiddleware(server as any,
+  app.use('/graphql', expressMiddleware(server,
     {
       context: authenticateToken as any
     }
