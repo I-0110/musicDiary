@@ -37,7 +37,7 @@ interface AddProfileArgs {
 //   skill: string;
 // }
 
-interface AuthPayload {
+interface Auth {
   token: string;
   profile: Profile;
 }
@@ -95,12 +95,12 @@ const resolvers = {
         { new: true, runValidators: true }
       );
     },
-    addProfile: async (_parent: any, { input }: AddProfileArgs): Promise<AuthPayload> => {
+    addProfile: async (_parent: any, { input }: AddProfileArgs): Promise<Auth> => {
       const profile = await Profile.create({ ...input });
       const token = signToken(profile.name, profile.email, profile._id);
       return { token, profile };
     },
-    login: async (_parent: any, { email, password }: { email: string; password: string }): Promise<AuthPayload> => {
+    login: async (_parent: any, { email, password }: { email: string; password: string }): Promise<Auth> => {
       const profile = await Profile.findOne({ email });
       if (!profile) {
         throw AuthenticationError;

@@ -13,11 +13,15 @@ export const ADD_PROFILE = gql`
 `;
 
 export const ADD_PRACTICE_LOG = gql`
-  mutation addPracticeLog($profileId: ID!, $practiceLog: String!) {
-    addPracticeLog(profileId: $profileId, practiceLog: $practiceLog) {
+  mutation addPracticeLog($log: PracticeLog!) {
+    addPracticeLog(log: $log) {
       _id
       name
-      practiceLogs
+      practiceLogs {
+        date
+        startTime
+        endTime
+      }
     }
   }
 `;
@@ -35,11 +39,15 @@ export const LOGIN_USER = gql`
 `;
 
 export const REMOVE_PRACTICE_LOG = gql`
-  mutation removePracticeLog($practiceLog: String!) {
-    removePracticeLog(practiceLog: $practiceLog) {
+  mutation removePracticeLog($log: PracticeLog!) {
+    removePracticeLog(log: $log) {
       _id
       name
-      practiceLogs
+      practiceLogs {
+        date
+        startTime
+        endTime
+      }
     }
   }
 `;
