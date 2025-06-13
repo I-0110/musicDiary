@@ -43,8 +43,8 @@ const Signup = () => {
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+        <div className="bg-gradient-to-tl from-[#ffffff] to-gray-200 dark:from-[#03161e] dark:to-gray-200 text-light-text dark:text-dark-text p-6 rounded shadow-md transition-all duration-300">
+          <h4 className="text-xl font-semibold mb-4 text-light-text dark:text-dark-text-100 p-2">Sign Up</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -78,7 +78,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-info"
+                  className="bg-light-accent text-white dark:bg-dark-accent px-4 py-2 rounded hover:opacity-90 transition"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
