@@ -49,7 +49,7 @@ const PracticeLogs: React.FC<PracticeLogsListProps> = ({ practiceLogs = [], isLo
             {/* <h5 className='text-gray-800'><span className='font-medium'>Total:</span>{log.totalPracticeTime}</h5> */}
               {isLoggedInUser && (
                 <button
-                  className="ml-auto mt-4 px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600 transition"
+                  className="ml-auto mt-4 px-3 py-1 bg-dark-alert text-white hover:opacity-90 transition"
                   onClick={() => handleRemovePracticeLog({
                     date: log.date,
                     startTime: log.startTime,
