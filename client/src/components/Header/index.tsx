@@ -13,7 +13,7 @@ const Header = () => {
       <div className="relative z-10 text-center">
         <Link className="text-light" to="/">
           <h1 className="text-4xl font-bold text-white dark:text-dark-accent" style={{ fontSize: '3rem' }}>
-            Music Diary
+            𝄞 Music Diary
           </h1>
         </Link>
         <p className="bg-light-accent text-white dark:bg-dark-accent px-6 py-2 rounded shadow-md hover:opacity-90 transition" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
