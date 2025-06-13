@@ -37,7 +37,7 @@ const PracticeLogForm = () => {
   };
 
   return (
-  <div className="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text p-6 rounded shadow-md transition-colors duration-300">
+  <div className="bg-gradient-to-tl from-[#ffffff] to-gray-300 dark:from-[#03161e] dark:to-gray-700 text-light-text dark:text-dark-text p-6 rounded shadow-md transition-all duration-300">
     <h4 className="text-xl font-semibold mb-4">Log a new practice session</h4>
     {Auth.loggedIn() ? (
       <form
@@ -96,7 +96,15 @@ const PracticeLogForm = () => {
       ) : (
       <p>
         You need to be logged in to log practice sessions. Please{' '}
-        <Link to="/login" className="text-light-accent dark:text-dark-accent underline">login</Link> or <Link to="/signup" className="text-light-accent dark:text-dark-accent underline">signup</Link>.
+        <Link
+          to="/login">
+          login
+        </Link>{' '}
+        or{' '}
+        <Link
+          to="/signup">
+          signup
+        </Link>.
       </p>
     )}
   </div>

@@ -41,11 +41,11 @@ const PracticeLogs: React.FC<PracticeLogsListProps> = ({ practiceLogs = [], isLo
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-6 my-6'>
       {practiceLogs.map((log, index) => (
-          <div key={index} className="bg-white shadow-md rounded-lg p-4 border border-gray-200">
-            <h3 className="text-xl font-semibold text-green-300 mb-2">Practice Session</h3> 
-            <h5 className="text-gray-800"><span className="font-medium">Date:</span> {log.date}</h5>
-            <h5 className="text-gray-800"><span className="font-medium">Start:</span> {log.startTime}</h5>
-            <h5 className="text-gray-800"><span className="font-medium">End:</span> {log.endTime}</h5>
+          <div key={index} className="bg-gradient-to-tl from-[#ffffff] to-gray-300 dark:from-[#03161e] dark:to-gray-700 text-light-text dark:text-dark-text shadow-md rounded-lg p-4 border border-gray-200">
+            <h3 className="text-xl font-semibold text-text-300 mb-2">Practice Session</h3> 
+            <h5 className="text-text-800"><span className="font-medium">Date:</span> {log.date}</h5>
+            <h5 className="text-text-800"><span className="font-medium">Start:</span> {log.startTime}</h5>
+            <h5 className="text-text-800"><span className="font-medium">End:</span> {log.endTime}</h5>
             {/* <h5 className='text-gray-800'><span className='font-medium'>Total:</span>{log.totalPracticeTime}</h5> */}
               {isLoggedInUser && (
                 <button
