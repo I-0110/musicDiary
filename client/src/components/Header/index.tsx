@@ -8,7 +8,7 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="relative bg-[url('/jungle.jpg')] bg-cover bg-top h-64 flex items-center justify-center">
+    <header className="relative bg-[url('/jungle.jpg')] bg-cover bg-top py-12 px-4 text-center">
       <div className="absolute inset-0 bg-black/50 dark:bg-black/70 z-0" />
       <div className="relative z-10 text-center">
         <Link className="text-light" to="/">
