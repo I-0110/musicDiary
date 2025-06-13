@@ -55,7 +55,7 @@ const ProfileForm = () => {
         </div>
 
         <div className="col-12 col-lg-3">
-          <button className="btn btn-info btn-block py-3" type="submit">
+          <button className="bg-light-accent text-white dark:bg-dark-accent hover:brightness-90 btn-block py-3" type="submit">
             Add Profile
           </button>
         </div>
