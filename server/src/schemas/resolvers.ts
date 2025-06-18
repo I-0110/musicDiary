@@ -15,6 +15,10 @@ interface PracticeLogInput {
   endTime: string;
 }
 
+// interface Metronome {
+//   bpm: Number;
+// }
+
 interface Profile {
   _id: string;
   name: string;
@@ -107,6 +111,9 @@ const resolvers = {
 
       return `${hours}h ${minutes}m`;
     },
+    // getMetronome: async (
+    //   _parent: any, 
+    // ),
   },
   Mutation: {
     addPracticeLog: async (
@@ -144,6 +151,9 @@ const resolvers = {
       const token = signToken(profile.name, profile.email, profile._id);
       return { token, profile };
     },
+    // setMetronome: (_, { bpm }) => {
+
+    // },
     login: async (_parent: any, { email, password }: { email: string; password: string }): Promise<Auth> => {
       const profile = await Profile.findOne({ email });
       if (!profile) {

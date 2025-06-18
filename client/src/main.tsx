@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Metronome from './components/Metronome/index.js';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Error from './pages/Error';
@@ -29,6 +30,9 @@ const router = createBrowserRouter([
       }, {
         path: '/me',
         element: <Profile />
+      }, {
+        path: '/metronome',
+        element: <Metronome />
       }
     ]
   },
