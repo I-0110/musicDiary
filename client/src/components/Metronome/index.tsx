@@ -125,28 +125,29 @@ const Metronome: React.FC = () => {
     }, []);
 
     return (
-        <div className='flex flex-col items-center space-y-6 mt-10'>
-            <h1 className="text-3xl font-bold">Metronome</h1>
-            <input 
-                type="range"
-                min="40"
-                max="240" 
-                value={bpm} 
-                onChange={(e) => setBpm(Number(e.target.value))} 
-                className='w-64'
-            />
-            <p className='text-xl'>{bpm} BPM</p>
-            <div className='flex items-center space-x-4'>
-                <label className='text-lg'>Beats per measure:</label>
-                <input
-                    type='number'
-                    min='1'
-                    max='12'
-                    value={beatsPerMeasure}
-                    onChange={(e) => setBeatsPerMeasure(Number(e.target.value))}
-                    className='border rounded px-2 py-1 w-16 text-black'
+        <div className="w-full max-w-md mx-auto bg-gradient-to-tl from-[#ffffff] to-gray-300 dark:from-[#03161e] dark:to-gray-700 text-light-text dark:text-dark-text p-6 rounded shadow-md transition-all duration-300">
+            <div className='flex flex-col items-center space-y-6 mt-10'>
+                <h1 className="text-3xl font-bold">Metronome</h1>
+                <input 
+                    type="range"
+                    min="40"
+                    max="240" 
+                    value={bpm} 
+                    onChange={(e) => setBpm(Number(e.target.value))} 
+                    className='w-64'
                 />
-            </div>
+                <p className='text-xl'>{bpm} BPM</p>
+                <div className='flex items-center space-x-4'>
+                    <label className='text-lg'>Beats per measure:</label>
+                    <input
+                        type='number'
+                        min='1'
+                        max='12'
+                        value={beatsPerMeasure}
+                        onChange={(e) => setBeatsPerMeasure(Number(e.target.value))}
+                        className='border rounded px-2 py-1 w-16 text-black'
+                    />
+                </div>
 
             <button onClick={handleStartStop} className={`px-6 py-2 rounded text-white text-lg ${isPlaying ? 'bg-red-500' : 'bg-green-500'}`}>
                 {isPlaying ? 'Stop' : 'Start'}
@@ -166,6 +167,7 @@ const Metronome: React.FC = () => {
             Test Sound Volume
             </button>
         </div>
+    </div>
     );
 };
 
