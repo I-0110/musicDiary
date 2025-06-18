@@ -22,7 +22,8 @@ const Header = () => {
           </p>
         </Link>
         <div className='flex items-center space-x-4'>
-          <Link className='btn btn-lg m-2 bg-light-primary text-white dark:bg-light-accent hover:opacity-90 transition space-y-4' to="/metronome"> Metronome
+          <Link className='btn btn-lg m-2 bg-light-primary text-light-text dark:bg-light-accent dark:text-dark-text hover:opacity-90 transition space-y-4' to="/metronome"> 
+            Metronome
           </Link>
           <div>
             {Auth.loggedIn() ? (
