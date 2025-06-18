@@ -12,6 +12,10 @@ const typeDefs = `
     endTime: String!
   }
 
+  type Metronome {
+    bpm: Int
+  }
+
   type Profile {
     _id: ID
     name: String
@@ -37,6 +41,7 @@ const typeDefs = `
     me: Profile
     practiceLogsByDate(date: String!): [PracticeLog]!
     totalPracticeTime: String!
+    getMetronome: Metronome
   }
 
   type Mutation {
@@ -45,6 +50,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     removeProfile: Profile
     removePracticeLog(log: PracticeLogInput!): Profile
+    setMetronome(bpm: Int!): Metronome
   }
 `;
 
