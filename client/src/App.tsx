@@ -11,7 +11,6 @@ import { Outlet } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Metronome from './components/Metronome';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
