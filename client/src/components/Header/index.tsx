@@ -30,6 +30,9 @@ const Header = () => {
           </p>
         </Link>
         <div className='flex flex-col items-center gap-4 mt-6 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4'>
+          <Link className='btn btn-lg m-2 bg-light-accent text-dark-text hover:brightness-110 transition' to="/flutists"> 
+            Flutists
+          </Link>
           <Link className='btn btn-lg m-2 bg-light-accent text-dark-text hover:brightness-110 transition' to="/metronome"> 
             Metronome
           </Link>

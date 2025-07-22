@@ -1,27 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import { useMutation, useQuery } from "@apollo/client";
-// import { gql } from "apollo-boost";
-
-// const GET_METRONOME = gql`
-//     query {
-//         getMetronome {
-//          bpm
-//         }
-//     }
-// `;
-
-// const SET_METRONOME = gql`
-//     mutation setMetronome($bpm: Int!) {
-//         setMetronome(bpm: $bpm) {
-//             bpm
-//         }
-//     }
-// `;
 
 // Main variable and the calls for variable used throughtout the app 
 const Metronome: React.FC = () => {
-    // const { data } = useQuery(GET_METRONOME);
-    // const [setMetronome] = useMutation(SET_METRONOME);
     const [bpm, setBpm] = useState(100);
     const [isPlaying, setIsPlaying] = useState(false);
     const [beatsPerMeasure, setBeatsPerMeasure] = useState(4);
@@ -32,26 +12,6 @@ const Metronome: React.FC = () => {
     const schedulerTimerRef = useRef<number>();
     const scheduleAheadTime = 0.1; //milliseconds
     const lookAhead = 25; //seconds
-
-    // const startMetronome = (bpm) => {
-    //     const interval = 60000 / bpm;
-    //     return setInterval(() => {
-
-    //     }, interval);
-    // };
-
-    // const handleStart = () => {
-
-    // };
-
-    // const handleStop = () => {
-
-    // };
-
-    // const handleChange = (e) => {
-    //     setBpm(e.target.value);
-    //     setMetronome({ variables: { bpm: e.target.value } });
-    // };
 
     //Advance time for the next beat 
     const nextNote = () => {
