@@ -1,4 +1,6 @@
 import express from 'express';
+import cors from 'cors';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Request, Response } from 'express';
@@ -30,6 +32,8 @@ const startApolloServer = async () => {
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
 
+  app.use(cors());
+
 // Log all incoming requests
   app.use('/graphql', expressMiddleware(server,
     {
@@ -45,6 +49,23 @@ const startApolloServer = async () => {
     });
   }
 
+// Adding my own API
+  app.get('/api/flutists', (_req, res) => {
+    console.log('✅ /api/flutists endpoint hit!');
+    const filePath = path.join(__dirname, 'seeds/flutistData.json');
+    console.log('📁 Looking for flutistData.json at:', filePath);
+    try {
+      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      res.json(data);
+    } catch (err) {
+      console.error('❌ Failed to load flutistData.json:', err);
+      res.status(500).json({ error: 'Could not load flutist data' });
+    }
+  });
+
+
+
+// Port where we get server
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
     console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);

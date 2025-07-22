@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Flutists from './pages/Flutists';
 import Metronome from './components/Metronome/index.js';
 import Tuner from './components/Tuner/index.js';
 import Signup from './pages/Signup';
@@ -37,6 +38,9 @@ const router = createBrowserRouter([
       }, {
         path: '/tuner',
         element: <Tuner />
+      }, {
+        path: '/flutists',
+        element: <Flutists />
       }
     ]
   },
