@@ -169,5 +169,19 @@
     "videos": ["http://www.youtube.com/watch?v=TmRRx4nmY4Y", "http://www.youtube.com/watch?v=ZwaNaZK7jRQ"],
     "sources": ["www.musicologie.org", "www.discogs.com", "www.flautistico.com"],
     "hashtags": ["FlutistsToKnow", "romanticism", "ParisConservatoire"]
+  },{
+    "name": "Ian Anderson",
+    "img": "/flutists/IAnderson.jpg",
+    "dob": "08/10/1947",
+    "dod": "",
+    "country": "Dunfermline, Fife, Scotland",
+    "period": "Contemporary",
+    "bio": "He is famously known in the world of rock music as the flutist in Jethro Tull.I will say this is all you need to know about him. (Yes, he plays other instruments too) Oh! And, he is still performing. Mainly, in USA and Europe. Please watch the videos below, you will understand.",
+    "teachers": ["self-taught"],
+    "students": [],
+    "workplaces": "Jethro Tull",
+    "videos": ["https://www.youtube.com/watch?v=eSUdlUmtg3Q&list=RDeSUdlUmtg3Q&start_radio=1", "https://www.youtube.com/watch?v=E1hka6cJLAc&list=RDE1hka6cJLAc&start_radio=1"],
+    "sources": ["https://jethrotull.com/musicians/ian-anderson-bio/"],
+    "hashtags": ["FlutistsToKnow", "rock", "contemporary"]
   }
 ]
