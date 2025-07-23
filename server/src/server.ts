@@ -49,11 +49,9 @@ const startApolloServer = async () => {
     });
   }
 
-// Adding my own API
+// Adding my own flutists API
   app.get('/api/flutists', (_req, res) => {
-    console.log('✅ /api/flutists endpoint hit!');
     const filePath = path.join(__dirname, 'seeds/flutistData.json');
-    console.log('📁 Looking for flutistData.json at:', filePath);
     try {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       res.json(data);
@@ -63,12 +61,11 @@ const startApolloServer = async () => {
     }
   });
 
-
-
 // Port where we get server
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
     console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+    console.log(`Use flutistsJSON at http://localhost:${PORT}/api/flutists`);
   });
 };
 
