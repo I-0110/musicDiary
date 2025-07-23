@@ -20,6 +20,7 @@ const Flutists: React.FC = () => {
     const [flutists, setFlutists] = useState<Flutists[]>([]);
     const [hover, setHover] = useState<number | null>(null);
     const [expand, setExpand] = useState<number | null>(null);
+    const [searchFlutist, setSearchFlutist] = useState('');
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -45,11 +46,35 @@ const Flutists: React.FC = () => {
 
     return (
         <>
-            <h1 className="bg-dark-background text-white text-center px-4 py-2 rounded shadow-md text-2xl font-bold mb-2 ">Flutists to Know</h1>
-            
+            <h1 className="bg-dark-background text-white text-center px-4 py-2 rounded shadow-md text-2xl font-bold mb-2">Flutists to Know</h1>
+            <div className="flex justify-center w-full mt-6 mb-4">
+                <div className='flex w-full max-w-[600px]'>
+                    {/* Input field */}
+                    <div className="relative flex-grow">
+                    <input
+                        type="text"
+                        placeholder="Search flutists..."
+                        value={searchFlutist}
+                        onChange={(e) => setSearchFlutist(e.target.value)}
+                        className="w-full py-2 pl-4 pr-10 rounded-l-full text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                    </div>
+                </div>
+
+                {/* Search button */}
+                <button
+                type="submit"
+                className="bg-gray-200 px-4 rounded-r-full border border-l-0 border-gray-300 hover:bg-gray-300"
+                >
+                    <img src="./mag-glass.png" alt="Search" className="h-5 w-5" />
+                </button>
+            </div>
+
             {expand === null ? (
                 <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
-                {flutists.map((flutist, index) => {
+                {flutists
+                .filter(f => f.name.toLowerCase().includes(searchFlutist.toLowerCase()))
+                .map((flutist, index) => {
                     const isHover = hover !== null;
                     const isThisHover = hover === index;
                     const isExpanded = expand === index;
