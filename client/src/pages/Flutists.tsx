@@ -25,7 +25,8 @@ const Flutists: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch('/api/flutists')
+        const API_BASE = import.meta.env.VITE_API_BASE_URL || ''; 
+        fetch(`${API_BASE}/api/flutists`)
         .then(res => res.json())
         .then(data => {
             console.log('Fetched flutist data:', data);
@@ -40,7 +41,7 @@ const Flutists: React.FC = () => {
     }, []);
 
     if (loading) return <p>Loading flutists...</p>;
-    if (error) return <p className="text-red-500">{error}</p>;
+    if (error) return <p className="text-red-200 dark:text-red-600">{error}</p>;
 
     return (
         <>
