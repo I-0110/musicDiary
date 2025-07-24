@@ -52,11 +52,14 @@ const startApolloServer = async () => {
 // Adding my own flutists API
   app.get('/api/flutists', (_req, res) => {
     const filePath = path.join(__dirname, '../src/seeds/flutistData.json');
+    console.log(`Looking for flutist data at:`, filePath);
+
     try {
-      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      const raw = fs.readFileSync(filePath, 'utf8');
+      const data = JSON.parse(raw);
       res.json(data);
-    } catch (err) {
-      console.error('❌ Failed to load flutistData.json:', err);
+    } catch (err: any) {
+      console.error('❌ Failed to load flutistData.json:', err.message);
       res.status(500).json({ error: 'Could not load flutist data' });
     }
   });
