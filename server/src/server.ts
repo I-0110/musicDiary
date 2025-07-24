@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-// import fs from 'node:fs';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Request, Response } from 'express';
@@ -9,7 +9,7 @@ import { ApolloServer } from '@apollo/server';// Note: Import from @apollo/serve
 import { expressMiddleware } from '@apollo/server/express4';
 import { typeDefs, resolvers } from './schemas/index.js';
 import { authenticateToken } from './utils/auth.js';
-import flutist from './seeds/flutistData.json' with { type: "json" };
+// import flutist from './seeds/flutistData.json' with { type: "json" };
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -25,6 +25,10 @@ const server = new ApolloServer({
 const startApolloServer = async () => {
   await server.start();
   await db();
+
+const flutist = JSON.parse(
+  fs.readFileSync(new URL('./seeds/flutistData.json', import.meta.url), 'utf-8')
+);
 
 // Middleware to connect with log
   const PORT = process.env.PORT || 3001;
