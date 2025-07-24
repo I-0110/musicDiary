@@ -97,12 +97,12 @@
   },
   {
     "name": "Samuel Baron",
-    "img": "/flutists/flutist.jpg",
+    "img": "/flutists/Baron.jpg",
     "dob": "04/27/1925",
     "dod": "05/16/1997",
     "country": "New York, USA",
     "period": "Modern-Contemporary",
-    "bio": "He began as a violinist in highschool before being flutist. In 1965, he succeed Julius Baker on the Bach Aria Group.",
+    "bio": "He began as a violinist in highschool before being flutist. In 1965, he succeed Julius Baker on the Bach Aria Group. There is a worth to read interview available online at https://www.bruceduffie.com/baron2.html.",
     "teachers": ["George Barrère", "Edgar Schenkmann", "Arthur Lora"],
     "students": [],
     "workplaces": ["New York Woodwind Quintet", "New York City Opera Orchestra", "Minneapolis Symphony"],
@@ -122,7 +122,7 @@
     "students": ["Julius Baker", "Robert Cole", "James Pellerite", "Elaine Shaffer"],
     "workplaces": ["New York Symphony", "Philadelphia Orchestra"],
     "videos": ["http://www.youtube.com/watch?v=-yXaFKlDPe8"],
-    "sources": ["http://www.flutemonkey.com", "musiclassical.podomatic.com"],
+    "sources": ["http://www.flutemonkey.com", "https://www.bruceduffie.com/baron2.html (image credit)", "musiclassical.podomatic.com"],
     "hashtags": ["FlutistsToKnow", "contemporary", "WilliamKincaid", "JuliusBaker", "JuliusBaker", "George Barrère"]
   },
   {
