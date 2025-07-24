@@ -9,6 +9,7 @@ import { ApolloServer } from '@apollo/server';// Note: Import from @apollo/serve
 import { expressMiddleware } from '@apollo/server/express4';
 import { typeDefs, resolvers } from './schemas/index.js';
 import { authenticateToken } from './utils/auth.js';
+import flutist from './seeds/flutistData.json' with { type: "json" };
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -51,7 +52,7 @@ const startApolloServer = async () => {
 
 // Adding my own flutists API
   app.get('/api/flutists', (_req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, './seeds/flutistData.json'));
+    res.json(flutist);
   });
 
 // Port where we get server
