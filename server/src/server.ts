@@ -39,6 +39,8 @@ const flutist = JSON.parse(
 
   app.use(cors());
 
+  app.use(express.static('public'));
+
 // Log all incoming requests
   app.use('/graphql', expressMiddleware(server,
     {
