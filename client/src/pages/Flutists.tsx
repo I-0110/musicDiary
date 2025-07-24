@@ -26,7 +26,7 @@ const Flutists: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'; 
+        const API_BASE = import.meta.env.VITE_API_BASE_URL || ''; 
         fetch(`${API_BASE}/api/flutists`)
         .then(res => res.json())
         .then(data => {
@@ -138,6 +138,16 @@ const Flutists: React.FC = () => {
                         </p>
 
                         <p className="mt-4 mb-4 whitespace-pre-line">{flutists[expand].bio}</p>
+
+                        <p className="mb-1">
+                            <strong>Sources: </strong> 
+                            {Array.isArray(flutists[expand].sources) ? flutists[expand].sources.join(', ') : flutists[expand].sources}
+                        </p>
+
+                        <p className="mb-1">
+                            <strong>Hashtags: </strong> 
+                            {Array.isArray(flutists[expand].hashtags) ? flutists[expand].hashtags.join(', ') : flutists[expand].hashtags}
+                        </p>
 
                         {flutists[expand].videos.length > 0 && (
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
