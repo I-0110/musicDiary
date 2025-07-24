@@ -51,7 +51,7 @@ const startApolloServer = async () => {
 
 // Adding my own flutists API
   app.get('/api/flutists', (_req, res) => {
-    const filePath = path.join(__dirname, '../src/seeds/flutistData.json');
+    const filePath = path.join(__dirname, 'seeds/flutistData.json');
     console.log(`Looking for flutist data at:`, filePath);
 
     try {
