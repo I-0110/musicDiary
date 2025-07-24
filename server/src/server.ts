@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import fs from 'node:fs';
+// import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Request, Response } from 'express';
@@ -50,18 +50,8 @@ const startApolloServer = async () => {
   }
 
 // Adding my own flutists API
-  app.get('/api/flutists', (_req, res) => {
-    const filePath = path.join(__dirname, 'seeds/flutistData.json');
-    console.log(`Looking for flutist data at:`, filePath);
-
-    try {
-      const raw = fs.readFileSync(filePath, 'utf8');
-      const data = JSON.parse(raw);
-      res.json(data);
-    } catch (err: any) {
-      console.error('❌ Failed to load flutistData.json:', err.message);
-      res.status(500).json({ error: 'Could not load flutist data' });
-    }
+  app.get('/api/flutists', (_req: Request, res: Response) => {
+    res.sendFile(path.join(__dirname, './seeds/flutistData.json'));
   });
 
 // Port where we get server
