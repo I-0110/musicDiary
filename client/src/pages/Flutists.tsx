@@ -26,7 +26,7 @@ const Flutists: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const API_BASE = import.meta.env.VITE_API_BASE_URL || ''; 
+        const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'; 
         fetch(`${API_BASE}/api/flutists`)
         .then(res => res.json())
         .then(data => {
