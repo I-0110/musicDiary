@@ -117,10 +117,10 @@ const Profile = () => {
 
       {profile.practiceLogs?.length > 0 && (
         <>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-0 my-6'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-6 my-6'>
             <div className='md:col-span-1 flex flex-col space-y-6'>
-              <div className='p-4 bg-white rounded shadow flex-1'>
-                <h3 className='text-lg font-semibold mb-2 text-gray-800'>Recent practice with totals:</h3>
+              <div className='bg-gradient-to-tl from-[#ffffff] to-gray-300 dark:from-[#03161e] dark:to-gray-700 text-light-text dark:text-dark-text shadow-md rounded-lg p-4 border border-gray-200'>
+                <h3 className='text-xl font-semibold text-text-300 mb-2'>Recent practice with totals:</h3>
                 <ul className='list-disc list-inside text-light-700 space-y-1'>
                   {Object.entries(dailyTotals)
                     .sort(([a], [b]) => new Date(b).getTime() - new Date(a).getTime())
@@ -131,13 +131,13 @@ const Profile = () => {
                     ))}
                 </ul>
               </div>
-              <div className="p-4  bg-blue-100 text-blue-900 rounded shadow flex-1">
-                <h3 className="text-lg font-semibold mb-2 text-gray-800">Weekly Summary</h3>
-                <p className="text-gray-700">
-                  You've practiced <strong className='text-blue-700'>{formatMinutes(weekTotal)}</strong> this week!
+              <div className="bg-gradient-to-tl from-[#ffffff] to-gray-300 dark:from-[#03161e] dark:to-gray-700 text-light-text dark:text-dark-text shadow-md rounded-lg p-4 border border-gray-200">
+                <h3 className="text-lg font-semibold mb-2">Weekly Summary</h3>
+                <p>
+                  You've practiced <strong className='text-dark-alert'>{formatMinutes(weekTotal)}</strong> this week!
                 </p>
-                <p className="text-gray-700">
-                  And your daily average is <strong>{formatMinutes(Math.round(dailyAvg))}</strong>
+                <p>
+                  And your daily average is <strong className='text-dark-alert'>{formatMinutes(Math.round(dailyAvg))}</strong>
                 </p>
               </div>
             </div>

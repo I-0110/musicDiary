@@ -48,7 +48,7 @@ const PracticeChart: React.FC<PracticeChartProps> = ({
     };
 
     return (
-        <div className='bg-white p-4 rounded shadow mt-6'>
+        <div className='bg-light-background dark:bg-gray-300 shadow-md rounded-lg p-4 border border-gray-200'>
             <Bar data={data} options={options} />
         </div>
     );
