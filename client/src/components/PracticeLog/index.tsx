@@ -128,16 +128,27 @@ const PracticeLogs: React.FC<PracticeLogsListProps> = ({ practiceLogs = [], isLo
               </div>
 
               {/* Debug view */}
-              <pre className="text-xs bg-white text-gray-800 p-2 rounded mt-2">
-                {JSON.stringify(
-                  { 
-                    originalLog: cleanLogInput(log), 
-                    editedLog: cleanLogInput(editedLog), 
-                  }, 
-                  null, 
-                  2
-                )}
-              </pre>
+              <div className="mt-4 p-4 rounded border border-gray-300 bg-gray-50">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p className="font-medium text-gray-600">Original Log</p>
+                    <ul className="text-gray-800">
+                      <li><span className="font-semibold">Date:</span> {cleanLogInput(log).date}</li>
+                      <li><span className="font-semibold">Start:</span> {cleanLogInput(log).startTime}</li>
+                      <li><span className="font-semibold">End:</span> {cleanLogInput(log).endTime}</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="font-medium text-gray-600">Edited Log</p>
+                    <ul className="text-gray-800">
+                      <li><span className="font-semibold">Date:</span> {cleanLogInput(editedLog).date}</li>
+                      <li><span className="font-semibold">Start:</span> {cleanLogInput(editedLog).startTime}</li>
+                      <li><span className="font-semibold">End:</span> {cleanLogInput(editedLog).endTime}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           ) : (
             <>
