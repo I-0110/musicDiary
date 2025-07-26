@@ -47,6 +47,7 @@ const typeDefs = `
   type Mutation {
     addPracticeLog(log: PracticeLogInput!): Profile
     addProfile(input: ProfileInput!): Auth
+    updatePracticeLog(oldLog: PracticeLogInput!, newLog: PracticeLogInput!): PracticeLog
     login(email: String!, password: String!): Auth
     removeProfile: Profile
     removePracticeLog(log: PracticeLogInput!): Profile

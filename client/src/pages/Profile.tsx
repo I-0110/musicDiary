@@ -1,7 +1,7 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import PracticeLogs from '../components/PracticeLogs';
+import PracticeLogs from '../components/PracticeLog';
 // import PracticeForm from '../components/PracticeForm';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';

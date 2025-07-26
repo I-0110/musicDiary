@@ -13,6 +13,16 @@ export const ADD_PRACTICE_LOG = gql`
   }
 `;
 
+export const UPDATE_PRACTICE_LOG = gql`
+  mutation updatePracticeLog($oldLog: PracticeLogInput!, $newLog: PracticeLogInput!) {
+    updatePracticeLog(oldLog: $oldLog, newLog: $newLog) {
+      date
+      startTime
+      endTime
+    }
+  }  
+`;
+
 export const ADD_PROFILE = gql`
   mutation addProfile($input: ProfileInput!) {
     addProfile(input: $input) {
