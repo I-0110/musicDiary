@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { REMOVE_PRACTICE_LOG, UPDATE_PRACTICE_LOG } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 
-interface PracticeLog {
+export interface PracticeLog {
   date: string;
   startTime: string;
   endTime: string;
