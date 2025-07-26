@@ -146,6 +146,60 @@ const resolvers = {
         { new: true, runValidators: true }
       );
     },
+    updatePracticeLog: async (_parent: unknown, 
+      _args: { oldLog: PracticeLogInput, newLog: PracticeLogInput }, 
+      context: Context
+    ): Promise<PracticeLog> => {
+      const { oldLog, newLog } = _args;
+
+      if (!context.user) throw AuthenticationError;
+
+      const userId = context.user._id;
+
+      //Validate times
+      const start = new Date(`${newLog.date}T${newLog.startTime}`);
+      const end = new Date(`${newLog.date}T${newLog.endTime}`);
+      if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+        throw new Error(`Invalid date or time format.`);
+      }
+      if (end <= start) {
+        throw new Error(`End time must be after start time.`);
+      }
+
+      // Remove the old log first
+      await Profile.findOneAndUpdate(
+        { _id: userId },
+        {
+          $pull: {
+            practiceLogs: {
+              date: oldLog.date,
+              startTime: oldLog.startTime,
+              endTime: oldLog.endTime,
+            },
+          },
+        }
+      );
+
+      //Add the new updated Log
+      await Profile.findOneAndUpdate(
+        { _id: userId },
+        {
+          $push: {
+            practiceLogs: {
+              date: newLog.date,
+              startTime: newLog.startTime,
+              endTime: newLog.endTime,
+            },
+          },
+        },
+      );
+
+      return {
+        date: newLog.date,
+        startTime: newLog.startTime,
+        endTime: newLog.endTime,
+      };
+    },
     addProfile: async (_parent: any, { input }: AddProfileArgs): Promise<Auth> => {
       const profile = await Profile.create({ ...input });
       const token = signToken(profile.name, profile.email, profile._id);

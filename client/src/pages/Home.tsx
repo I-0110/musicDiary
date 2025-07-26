@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 
-import PracticeLogForm from '../components/PracticeForm';
+import AddPracticeLog from '../components/AddPracticeLog';
 
 // import ProfileList from '../components/ProfileList';
 
@@ -37,7 +37,7 @@ const Home = () => {
                 </div>
             </div>
           ) : (
-            <PracticeLogForm />
+            <AddPracticeLog />
           )}
         </div>
       </div>
