@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { REMOVE_PRACTICE_LOG, UPDATE_PRACTICE_LOG } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 
-interface PracticeLog {
+export interface PracticeLog {
   date: string;
   startTime: string;
   endTime: string;
@@ -114,13 +114,13 @@ const PracticeLogs: React.FC<PracticeLogsListProps> = ({ practiceLogs = [], isLo
               />
               <div className="flex gap-2 justify-end">
                 <button
-                  className="px-3 py-1 bg-green-600 text-white rounded hover:opacity-90"
+                  className="px-3 py-1 bg-light-primary text-white rounded hover:opacity-90"
                   onClick={() => handleEditSubmit(log)}
                 >
                   Save
                 </button>
                 <button
-                  className="px-3 py-1 bg-gray-500 text-white rounded hover:opacity-90"
+                  className="px-3 py-1 bg-[#b0b0b0] dark:bg-[#788892] text-white rounded hover:opacity-90"
                   onClick={() => setEditIndex(null)}
                 >
                   Cancel
@@ -164,10 +164,10 @@ const PracticeLogs: React.FC<PracticeLogsListProps> = ({ practiceLogs = [], isLo
               {isLoggedInUser && (
                 <div className="flex justify-end gap-2 mt-4">
                   <button
-                    className="px-3 py-1 bg-blue-600 text-white hover:opacity-90 transition rounded"
+                    className="px-3 py-1 bg-light-accent text-white hover:opacity-90 transition rounded"
                     onClick={() => handleEditClick(log, index)}
                   >
-                    🖉
+                    ✏️
                   </button>
                   <button
                     className="px-3 py-1 bg-dark-alert text-white hover:opacity-90 transition rounded"
